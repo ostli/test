@@ -1,0 +1,19 @@
+
+   
+name: Issues Notifier
+on:
+  issues:
+    types:
+      - reopened
+      - opened
+jobs:
+  add-assigness:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Work Weixin Notifier
+        uses: jerray/work-weixin-notifier@v1.1.0
+        with:
+          key: ${{ secrets.weixin_bot_key }}
+          content: '{{ github.Repository }} ${{ github.event.issue.number }} 222@ostwindli'
+          type: markdown
+          status: ${{ job.status }}
