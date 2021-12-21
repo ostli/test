@@ -14,6 +14,6 @@ jobs:
         uses: jerray/work-weixin-notifier@v1.1.0
         with:
           key: ${{ secrets.weixin_bot_key }}
-          content: '【文档】：有新的pull request，请前往查看:[${{github.event.pull_request.html_url}}](${{github.event.pull_request.html_url}}) @ostwindli'
+          content: '【文档】：有新的pull request，请前往查看@ostwindli \n [${{github.event.pull_request.html_url}}](${{github.event.pull_request.html_url}}) '
           type: markdown
           status: ${{ job.status }}
