@@ -1,0 +1,19 @@
+
+   
+name: Issues Notifier
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  add-assigness:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Work Weixin Notifier
+        uses: jerray/work-weixin-notifier@v1.1.0
+        with:
+          key: ${{ secrets.weixin_bot_key }}
+          content: '【文档】：有新的pull request，请前往查看 @ostwindli ${{github.event}}'
+          type: markdown
+          status: ${{ job.status }}
