@@ -1,1 +1,39 @@
-{ "detectionRuleUUIDs": ["88b32a64-8f87-414a-b8a2-a28d3dd8964a"] }
+{
+    "detectionRules": [
+      {
+        "name": "",
+        "detectors": [
+          {
+            "minNumFindings": 1,
+            "minConfidence": "LIKELY",
+            "displayName": "api key",
+            "detectorType": "NIGHTFALL_DETECTOR",
+            "nightfallDetector": "API_KEY"
+          },
+          {
+            "minNumFindings": 1,
+            "minConfidence": "LIKELY",
+            "displayName": "crypto key",
+            "detectorType": "NIGHTFALL_DETECTOR",
+            "nightfallDetector": "CRYPTOGRAPHIC_KEY"
+          },
+          {
+            "minNumFindings": 1,
+            "minConfidence": "LIKELY",
+            "displayName": "password",
+            "detectorType": "NIGHTFALL_DETECTOR",
+            "nightfallDetector": "PASSWORD_IN_CODE"
+          }
+        ],
+        "logicalOp": "ANY"
+      }
+    ],
+    "fileExclusionList": ["README.md"],
+    "defaultRedactionConfig": {
+      "maskConfig": {
+        "maskingChar": "*",
+        "numCharsToLeaveUnmasked": 2,
+        "charsToIgnore": ["-"]
+      }
+    }
+  }
