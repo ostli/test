@@ -32,3 +32,6 @@ jobs:
           NIGHTFALL_API_KEY: ${{ secrets.NIGHTFALL_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           EVENT_BEFORE: ${{ github.event.before }}
+    permissions:
+        checks: write
+        contents: read
