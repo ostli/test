@@ -23,7 +23,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: Checkout repo for running secrets analysis within workflow
+        id: checkout
+        uses: actions/checkout@v2.4.0
+        with:
+          fetch-depth: 0
       - name: SecureStack Secrets Analysis
         # You may pin to the exact commit or the version.
         # uses: SecureStackCo/actions-secrets@fa655ca32a01f32f76767389dc1e0eba8adc1f46
@@ -34,6 +38,7 @@ jobs:
           # SecureStack Application ID - available when viewing applications at https://app.securestack.com
           securestack_app_id: '5f6d7898-b222-4498-9ca1-81c459642d1c'
           # Severities lower than this input value will not be reported; value should be one of: critical | high | medium | low
-          severity: high
+          severity: critical
+          flags: '-d 999'
           # Optional flags for the bloodhound-cli secrets command - run bloodhound-cli code --help for more details.
-         # flags: # optional, default is 
+          # flags: # optional, default is 
